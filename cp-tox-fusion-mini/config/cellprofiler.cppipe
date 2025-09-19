@@ -1,0 +1,4 @@
+# Placeholder pipeline configuration for reference.
+# The cp-tox-fusion-mini project relies on Cellpose + pycytominer instead of
+# running a full CellProfiler pipeline. This file documents the intention and
+# can be extended with custom CellProfiler settings if needed in the future.
