@@ -68,6 +68,38 @@ Artifacts are written under `data/processed/` and `reports/`. Each CLI command g
 - BBBC021 subset lacks full experimental metadata (MoA, plate layouts); treat conclusions as illustrative only.
 - Apple M1 CPU-only focus means limited hyperparameter sweeps and truncated epochs.
 
+## Uncertainty, Audit, and Temporal Validation
+
+The pipeline now includes enhanced evaluation capabilities for uncertainty quantification, data auditing, and temporal validation:
+
+```bash
+# Run a quick audit on your dataset
+python -m src.audit_temporal --data data/processed/cp_dataset.parquet --y target \
+  --features "feature_*" --groups "batch_id,plate_id" --out artifacts/audit
+
+# Evaluate with MC-Dropout + slices + calibration
+python -m src.error_analysis --mc-dropout 30 --abstain-std 0.06 \
+  --groups batch_id plate_id compound_id --out artifacts/eval
+
+# Temporal evaluation (expanding window)
+python -m src.error_analysis --temporal-eval --date-col assay_date \
+  --mc-dropout 30 --out artifacts/eval
+
+# Run comprehensive audit + evaluation
+python scripts/run_audit_and_temporal.py --data data/processed/cp_dataset.parquet \
+  --y target --features "feature_*" --groups "batch_id,plate_id,compound_id" \
+  --mc-dropout 30 --out artifacts
+```
+
+**Key Features:**
+- **MC-Dropout**: Provides predictive mean & std; use `--abstain-std` to defer uncertain cases
+- **Data Audit**: Integrity checks, leakage detection, class balance, feature drift (KS/PSI), batch effects  
+- **Temporal Validation**: Time-based splits using `assay_date` or pseudo-temporal ordering via `batch_id`
+- **Slice Metrics**: Performance breakdown by groups (batch, plate, compound)
+- **Enhanced Plots**: Uncertainty histograms, coverage curves, precision-recall, temporal trends
+
+Results are saved to timestamped directories under your specified `--out` path with comprehensive JSON metrics, CSV data, and visualization plots.
+
 ## Next steps
 
 1. Replace heuristic ID mapping with curated metadata (SMILES ↔ perturbation table).

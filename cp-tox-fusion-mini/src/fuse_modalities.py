@@ -128,7 +128,11 @@ def main(argv: List[str] | None = None) -> int:
 
     chem_meta_cols = [col for col in CHEM_META_COLUMNS if col in chem_df.columns]
     if args.tox_target not in chem_df.columns:
-        candidates = [col for col in chem_df.columns if col not in CHEM_META_COLUMNS and (col.startswith("nr-") or col.startswith("sr-"))]
+        candidates = [
+            col
+            for col in chem_df.columns
+            if col not in CHEM_META_COLUMNS and (col.startswith("nr-") or col.startswith("sr-"))
+        ]
         if candidates:
             LOGGER.warning("Target %s missing; falling back to %s", args.tox_target, candidates[0])
             args.tox_target = candidates[0]

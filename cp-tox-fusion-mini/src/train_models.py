@@ -485,7 +485,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         embed_cols = [col for col in embedding_df.columns if col.startswith("img_emb_")]
         agg_embeddings = embedding_df.groupby("compound_id")[embed_cols].mean().reset_index()
         fusion_dataset = fusion_dataset.merge(agg_embeddings, on="compound_id", how="inner")
-        chem_cols = [col for col in fusion_dataset.columns if col.startswith("chem_") and col not in {"chem_compound_id"}]
+        chem_cols = [
+            col
+            for col in fusion_dataset.columns
+            if col.startswith("chem_") and col not in {"chem_compound_id"}
+        ]
         embed_cols = [col for col in fusion_dataset.columns if col.startswith("img_emb_")]
         fusion_model, fusion_metrics, fusion_extras, fusion_predictions = late_fusion_training(
             fusion_dataset,
@@ -530,7 +534,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         fusion_mask = fusion_dataset["compound_id"].isin(splits["fusion"]["test"])
         if fusion_mask.any():
             embed_cols = [col for col in fusion_dataset.columns if col.startswith("img_emb_")]
-            chem_cols = [col for col in fusion_dataset.columns if col.startswith("chem_") and col not in {"chem_compound_id"}]
+            chem_cols = [
+                col
+                for col in fusion_dataset.columns
+                if col.startswith("chem_") and col not in {"chem_compound_id"}
+            ]
             scaler = StandardScaler()
             pca = PCA(n_components=min(64, len(chem_cols)))
             chem_scaled = scaler.fit_transform(fusion_dataset[chem_cols])
