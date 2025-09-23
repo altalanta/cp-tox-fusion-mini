@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "relpath": "data/raw/bbbc021/plate_A1_w1.tiff",
+      "sha256": "33316edcc8991154d96602f59d998f76f3a05653e88023f7571ca4807afd7225",
+      "size": 4218
+    },
+    {
+      "relpath": "data/raw/bbbc021/plate_A1_w2.tiff",
+      "sha256": "33316edcc8991154d96602f59d998f76f3a05653e88023f7571ca4807afd7225",
+      "size": 4218
+    },
+    {
+      "relpath": "data/raw/bbbc021/plate_A1_w3.tiff",
+      "sha256": "33316edcc8991154d96602f59d998f76f3a05653e88023f7571ca4807afd7225",
+      "size": 4218
+    },
+    {
+      "relpath": "data/raw/bbbc021/plate_B1_w1.tiff",
+      "sha256": "33316edcc8991154d96602f59d998f76f3a05653e88023f7571ca4807afd7225",
+      "size": 4218
+    },
+    {
+      "relpath": "data/raw/bbbc021/plate_B1_w2.tiff",
+      "sha256": "33316edcc8991154d96602f59d998f76f3a05653e88023f7571ca4807afd7225",
+      "size": 4218
+    },
+    {
+      "relpath": "data/raw/bbbc021/plate_B1_w3.tiff",
+      "sha256": "33316edcc8991154d96602f59d998f76f3a05653e88023f7571ca4807afd7225",
+      "size": 4218
+    },
+    {
+      "relpath": "data/raw/tox21/tox21_mini.csv",
+      "sha256": "7d7e7facd853a63e79ddce4e9c3fcb7a0d83a1c300b603031c0f2c64fbe77761",
+      "size": 525119
+    }
+  ],
+  "generated_at_utc": "2025-09-23T23:00:12.570885Z",
+  "version": 1
+}
