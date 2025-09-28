@@ -1,0 +1,63 @@
+# CP-Tox-Mini Pipeline Dependencies
+# Production-ready Cell Painting × Toxicity fusion
+
+# Core ML and Data Science
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.2
+scipy==1.13.1
+
+# Data Storage and I/O
+pyarrow==16.1.0
+joblib==1.4.2
+
+# Visualization
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# CLI and Configuration
+typer==0.12.3
+pydantic==2.7.1
+
+# Report Generation
+markdown==3.6
+
+# Progress Bars
+tqdm==4.66.4
+
+# Chemistry (Optional - fallback to basic features if not available)
+# rdkit-pypi==2022.9.5  # Uncomment if RDKit features needed
+
+# Image Processing (Optional - for advanced Cell Painting features)
+# pillow==10.3.0         # Uncomment if image processing needed
+# opencv-python==4.9.0.80  # Uncomment if advanced image features needed
+
+# Development and Testing (install with pip install -e .[dev])
+# pytest==8.2.1
+# pytest-cov==5.0.0
+# pytest-xdist==3.6.0
+# black==24.4.2
+# flake8==7.0.0
+# mypy==1.10.0
+
+# Optional: GPU acceleration (uncomment if available)
+# cupy-cuda12x==13.1.0   # For CUDA 12.x
+# cuml==24.4.0           # Rapids ML for GPU
+
+# Optional: Advanced ML (uncomment if needed)
+# xgboost==2.0.3
+# lightgbm==4.3.0
+# catboost==1.2.5
+
+# Optional: Notebook support
+# jupyter==1.0.0
+# ipykernel==6.29.4
+# ipywidgets==8.1.2
+
+# Platform-specific dependencies
+# macOS Apple Silicon optimizations
+# tensorflow-macos==2.16.1; platform_machine=="arm64" and sys_platform=="darwin"
+# torch==2.3.0; platform_machine=="arm64" and sys_platform=="darwin"
+
+# Linux optimizations
+# intel-extension-for-pytorch==2.3.0; sys_platform=="linux"
